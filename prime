@@ -1,0 +1,36 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+bool isPrime(int val){
+    for(int i=4;i<val;i++){
+        if(val==1) return false;
+        if(i==2 || i==3) return true;
+        if(val%2==0){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+int n;
+vector<int>vec = {1,6, 4, 13, 9, 3};
+int mx = INT_MIN;
+int mi = INT_MAX;
+for(int i=0;i<vec.size();i++){
+    if(isPrime(vec[i])){
+        mx = max(mx,vec[i]);
+        mi = min(mi,vec[i]);
+    }
+}
+sort(vec.rbegin(),vec.rend());
+vec[0] = mx;
+vec[vec.size()-1] = mi;
+swap(vec[vec.size()-1],vec[vec.size()-2]);
+for(int i=0;i<vec.size();i++){
+    cout<<vec[i]<<" ";
+}
+
+
+   return 0;
+}
